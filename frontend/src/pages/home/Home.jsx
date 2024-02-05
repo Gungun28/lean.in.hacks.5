@@ -4,7 +4,7 @@ import Seperator from '../../components/seperator/Seperator'
 import Main from '../../components/main/Main'
 import './Home.scss'
 import About from '../../components/info/Info'
-import Navbar from '../../components/Navbar/Navbar'
+import Navbar from '../../components/navbar/Navbar'
 const Home = () => {
   return (
     <div className='home'>

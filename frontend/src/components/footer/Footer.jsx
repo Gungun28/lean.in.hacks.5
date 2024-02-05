@@ -12,7 +12,7 @@ const Footer = () => {
         <div className='footer'>
             <div className="return">
                 <Link to='/'>
-                    <button onClick={scrollToTop}>Jeevika</button>
+                    <button onClick={scrollToTop}>Localलाभ</button>
                 </Link>
             </div>
             <div className="navigate">

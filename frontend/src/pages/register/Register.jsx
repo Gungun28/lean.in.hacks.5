@@ -1,4 +1,4 @@
-import './register.scss';
+import './Register.scss';
 import { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -45,7 +45,7 @@ const Register = () => {
   const handleImageUpload = async () => {
     try {
       // Upload logo
-      const logoRef = ref(storageInstance, logos/${business}_${Date.now()});
+      const logoRef = ref(storageInstance, `logos/${business}_${Date.now()}`);
       await uploadBytesResumable(logoRef, logoFile);
 
       // Get logo URL
@@ -53,7 +53,7 @@ const Register = () => {
 
       // Upload sample pictures
       const samplePromises = sampleFiles.map(async (file, index) => {
-        const sampleRef = ref(storageInstance, samples/${business}_sample_${index}_${Date.now()});
+        const sampleRef = ref(storageInstance, `samples/${business}_sample_${index}_${Date.now()}`);
         await uploadBytesResumable(sampleRef, file);
         // Get sample URL
         const sampleURL = await getDownloadURL(sampleRef);
