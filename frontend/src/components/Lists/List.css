@@ -1,0 +1,26 @@
+.listitem{
+    display: flex;
+    background-color: #fbf1d0;
+    margin:20px;
+    border-radius: 10px;
+    font-family: 'Protest Riot', sans-serif;
+    justify-content: space-between;
+}
+.item{
+    display: flex;
+    flex-direction: row;
+    padding:20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item img{
+    height: 150px;
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.head-foot{
+    margin-left:150px;
+}

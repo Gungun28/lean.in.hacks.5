@@ -1,15 +1,33 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
+import Categorypa from './pages/categorypage/Categorypa';
 import Home from './pages/home/Home';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Register from './pages/register/Register';
+import Store from './pages/Store/Store';
+
 function App() {
+  const user = true; // You can replace this with your authentication logic
+
   return (
-    <Router>
-      <Routes>
-        <Route path='/register' element={<Register></Register>}></Route>
-        <Route exact path='/' element={<Home/>}></Route>
-      </Routes>
-    </Router>
+    <>
+      <div>
+      <Router>
+        <Routes>
+          {user ? (
+            <>
+            <Route exact path="/" element={<Home/>} />
+              <Route exact path="/purse" element={<Categorypa type="purse" />} />
+              <Route exact path="/jewellery" element={<Categorypa type="jewellery" />} />
+              <Route exact path="/phonecase" element={<Categorypa type="phonecase" />} /> 
+              <Route exact path="/store" element={<Store/>} />              
+            </>
+          ):(<Route exact path="/register" element={<Register/>} />)}
+        </Routes>
+        {user &&<Footer/>}
+      </Router>
+    </div>
+    </>
   );
 }
 

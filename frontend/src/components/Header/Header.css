@@ -1,0 +1,36 @@
+.heading{
+    display: flex;
+    flex-direction: row;
+    background-color:#fbf1d0;
+    justify-content: center;
+}
+.main-title {
+  flex: 3;
+  line-height: 1;
+  color: #6c6c03;
+  font-family: 'Lucida Handwriting';
+  align-items: center;
+  padding-left: 18%;
+}
+
+.fa-regular{
+  font-size: 4em;
+  color: #6c6c03;
+}
+.go-back{
+    
+    flex:1;
+    display: flex;
+    margin-top: 3px;
+    /* margin-left: 8 px; */
+    align-items: center;
+    justify-content: center;
+  }
+  /* styles.css */
+  .image-button {
+    flex:1;
+    background-color:#fbf1d0;  
+  border: none; /* Remove button border */
+  padding: 10px; /* Adjust padding as needed */
+  cursor: pointer; /* Change cursor on hover */
+}

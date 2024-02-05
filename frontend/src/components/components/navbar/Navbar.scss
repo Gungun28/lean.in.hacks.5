@@ -1,0 +1,61 @@
+.navbar{
+    width: 100%; //adjust spacing 
+    background-color: rgba(95,95,75,.3);
+    height: 50px;
+    color: white;
+    font-size: 14px;
+    position: fixed; // on top even on scroll
+    top: 0;
+    z-index: 99999; // jiski jitni jyada z index vo sabke upar than one with less z index
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+    &.scrolled{
+        background-color: rgba(95,95,75);
+    }
+    .container{
+        margin: 10px 0;
+        padding: 0px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        .left{
+            margin-top: -5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            
+            .logo{
+                align-items: center;
+                justify-content: center;
+                font-size: 35px;
+                font-weight: 500;
+                margin-right: 50px;
+            }
+            .link{
+                font-size: 20px;
+                margin-right: 50px;
+                &:hover{
+                    font-size: 25px;
+                    transition: all 0.2s ease-in;
+                }
+            }
+            
+        }
+
+        .right{
+            display: flex;
+            align-items: center;
+            img{
+                margin-left: 50px;
+                cursor: pointer;
+                width: 25px;
+                height: 30px;
+                border-radius: 50px;
+                object-fit: cover;
+            }
+            
+        }
+    }
+}

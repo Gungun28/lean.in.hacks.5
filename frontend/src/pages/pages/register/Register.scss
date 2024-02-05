@@ -1,0 +1,78 @@
+.register {
+    height: 700px;
+    background: url('https://img.freepik.com/premium-vector/abstract-watercolor-background-vector-traditional-watercolor-oriental-japanese-style-vector-illustration_76964-6196.jpg?w=740');
+    background-size: cover;
+    position: relative;
+    .top {
+        margin-top: 15px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+
+        button {
+            cursor: pointer;
+            display: flex;
+            height: 40px;
+            width: 100px;
+            font-size: 20px;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+
+            &:hover {
+                background-color: antiquewhite;
+            }
+        }
+    }
+    h1{
+        margin-top: -5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card {
+        position: absolute;
+        padding: 40px;
+        height: 250px;
+        left: 350px;
+        width: 37vw;
+        background: white;
+        -webkit-box-shadow: 1px 1px 33px 5px rgba(120, 118, 120, 0.55);
+        -moz-box-shadow: 1px 1px 33px 5px rgba(120, 118, 120, 0.55);
+        box-shadow: 1px 1px 33px 5px rgba(120, 118, 120, 0.55);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .inp{
+            outline: none;
+            border: none;
+            font-size: larger;
+            border-bottom: 1px solid gray;
+            color: grey;
+        }
+        button{
+            font-size: larger;
+            width: 20%;
+            padding: 7px;
+            font-weight: bold;
+            margin-left: 40%;
+            background: antiquewhite;
+            cursor: pointer;
+        }
+        .first, .second{
+            display: flex;
+            flex-direction: row;
+            font-size: larger;
+            justify-content: space-between;
+            .in{
+                font-size: large;
+            }
+        }
+    }
+
+}
