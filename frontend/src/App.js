@@ -1,10 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
 import Categorypa from './pages/categorypage/Categorypa';
 import Home from './pages/home/Home';
 import Register from './pages/register/Register';
 import Store from './pages/Store/Store';
+import Footer from './components/footer/Footer';
 
 function App() {
   const user = true; // You can replace this with your authentication logic
@@ -24,7 +24,7 @@ function App() {
             </>
           ):(<Route exact path="/register" element={<Register/>} />)}
         </Routes>
-        {user &&<Footer/>}
+        {user &&<Footer></Footer>}
       </Router>
     </div>
     </>
