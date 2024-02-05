@@ -5,7 +5,7 @@ body{
   /* font-family: 'Protest Riot', sans-serif; */
 }
 
-:link{
+:link, link{
   text-decoration: none;
   color:black;
 }

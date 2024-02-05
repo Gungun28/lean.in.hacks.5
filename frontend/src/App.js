@@ -20,7 +20,8 @@ function App() {
               <Route exact path="/purse" element={<Categorypa type="purse" />} />
               <Route exact path="/jewellery" element={<Categorypa type="jewellery" />} />
               <Route exact path="/phonecase" element={<Categorypa type="phonecase" />} /> 
-              <Route exact path="/store" element={<Store/>} />              
+              <Route exact path="/store" element={<Store/>} />  
+              <Route exact path="/register" element={<Register/>} />            
             </>
           ):(<Route exact path="/register" element={<Register/>} />)}
         </Routes>
