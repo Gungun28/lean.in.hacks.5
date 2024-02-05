@@ -1,0 +1,30 @@
+.customer-name {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .star-rating {    
+    display: inline-block;
+  }
+.review{
+    width: 80%;
+    line-height: 1;
+    border:2px solid #f7e4a5;
+    
+    padding-left: 3%;
+    border-radius: 8px;
+    font-family: 'Lucida Handwriting';
+    margin-bottom: 30 px;
+}
+
+
+.review-container{
+  padding-left: 2%;
+  /* padding-right: 2%; */
+  padding-bottom: 3%;
+  padding-top: 2%;
+  /* width:80%; */
+  /* border: 2px solid red; */
+  height:400px;
+  overflow-y: scroll; 
+}
