@@ -5,7 +5,7 @@ import Seperator from '../../components/seperator/Seperator'
 import Main from '../../components/main/Main'
 import './Home.scss'
 import Footer from '../../components/footer/Footer'
-import About from '../../components/about/About'
+import About from '../../components/info/Info'
 const Home = () => {
   return (
     <div className='home'>
