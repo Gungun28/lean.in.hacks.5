@@ -1,0 +1,23 @@
+.about{
+    position: relative;
+    height: 90vh;
+    background: url('https://img.freepik.com/premium-photo/shopping-cart-with-bags_360032-962.jpg?w=996');
+    background-size: cover;
+    .text{
+        font-family: Arial;
+        position: absolute;
+        top : 30px;
+        background: linear-gradient(rgba(214, 208, 208, 0.3), rgba(241, 164, 164, 0.3));
+        height: 65vh;
+        width: 33%;
+        padding: 40px 50px 40px 100px;
+        
+        .head{
+            font-size: 35px;
+        }
+        p{
+            font-size: larger;
+            justify-content: center;
+        }
+    }
+}

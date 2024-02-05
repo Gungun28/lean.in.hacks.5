@@ -1,0 +1,38 @@
+.hero {
+    color: white;
+    display: flex;
+    height: 120vh;
+    background-image: url('https://img.freepik.com/premium-photo/asian-woman-with-tanned-skin-souvenir-shop_8595-11059.jpg?w=826');
+    background-size: cover;
+
+    .content {
+        font-family: 'Playfair Display', serif;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 66px;
+            margin: 130px 0 30px 0;
+        }
+
+        button {
+            font-family: 'Playfair Display', serif;
+            padding: 6px 30px;
+            font-size: 25px;
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+            font-weight: bolder;
+            cursor: pointer;
+            transition-duration: 0.2s;
+            &:hover {
+                background: white;
+                color: black;
+            }
+        }
+    }
+}

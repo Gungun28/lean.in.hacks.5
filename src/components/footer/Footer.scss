@@ -1,0 +1,51 @@
+.footer{
+    background: #F6F3EF;
+    height: 35vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    .return{
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -10px;
+        margin-right: 80px;
+        button{
+            font-size: 36px;
+            padding: 10px;
+            background-color: #e4ded7;
+            cursor: pointer;
+            outline: 2px solid black;
+            outline-offset: -7px;
+        }
+    }
+    .navigate{
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        .title{
+            font-weight: bolder;
+        }
+    }
+    .contact{
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        .title{
+            font-weight: bolder;
+        }
+        .fa-brands{
+            font-size: 27px;
+            margin-right: 15px;
+        }
+        .fa-solid{
+            margin-right: 10px;
+        }
+    }
+}

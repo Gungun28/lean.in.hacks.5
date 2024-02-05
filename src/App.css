@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.link{
+  text-decoration: none;
+  color: inherit;
+}
+.link:hover{
+  color: #282c34;
+  transition: all 0.2s ;
+}
+:link{
+  text-decoration: none;
+}
