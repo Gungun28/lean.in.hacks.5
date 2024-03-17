@@ -1,33 +1,40 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate
 import Categorypa from './pages/categorypage/Categorypa';
 import Home from './pages/home/Home';
 import Register from './pages/register/Register';
 import Store from './pages/Store/Store';
 import Footer from './components/footer/Footer';
+import Login from './pages/loginPage/LoginPage';
+import Landing from './pages/landing/Landing';
+import UserRegister from './pages/userRegister/UserRegister';
 
 function App() {
-  const user = true; // You can replace this with your authentication logic
+  const [user, setUser] = useState("khushi");
 
   return (
     <>
       <div>
-      <Router>
-        <Routes>
-          {user ? (
-            <>
-            <Route exact path="/" element={<Home/>} />
-              <Route exact path="/purse" element={<Categorypa type="purse" />} />
-              <Route exact path="/jewellery" element={<Categorypa type="jewellery" />} />
-              <Route exact path="/phonecase" element={<Categorypa type="phonecase" />} /> 
-              <Route exact path="/store" element={<Store/>} />  
-              <Route exact path="/register" element={<Register/>} />            
-            </>
-          ):(<Route exact path="/register" element={<Register/>} />)}
-        </Routes>
-        {user &&<Footer></Footer>}
-      </Router>
-    </div>
+        <Router>
+          {!user && <Navigate to="/landing" />}
+          <Routes>
+            {/* Use Navigate to redirect to register page if user is not logged in */}
+            {/* Routes for logged in users */}
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/purse" element={<Categorypa type="purse" />} />
+            <Route exact path="/jewellery" element={<Categorypa type="jewellery" />} />
+            <Route exact path="/phonecase" element={<Categorypa type="phonecase" />} />
+            <Route exact path="/store" element={<Store user={user} />} />
+            <Route exact path="/landing" element={<Landing />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/userregister" element={<UserRegister />} />
+            <Route exact path="/login" element={<Login type="business" />} />
+            <Route exact path="/userlogin" element={<Login type="user" user={user} setUser={setUser} />} />
+          </Routes>
+          {/* {user && <Footer></Footer>} */}
+        </Router>
+      </div>
     </>
   );
 }

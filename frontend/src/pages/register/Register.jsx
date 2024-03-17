@@ -1,5 +1,6 @@
 import './Register.scss';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
@@ -79,6 +80,8 @@ const Register = () => {
       setButtonClicked(true);
     }
   }
+  const navigate = useNavigate();
+
   const handleRegister = async ({logoURL,sampleURLs}) => {
     if (name && email && password) {
       setButtonClicked(true);
@@ -108,6 +111,7 @@ const Register = () => {
 
         const data = await response.json();
         console.log('Object saved in MongoDB successfully:', data);
+        navigate('/login')
       } catch (error) {
         console.error('Error calling MongoDB API:', error);
       }
@@ -131,7 +135,7 @@ const Register = () => {
   return (
     <div className='register'>
       <div className="top">
-        <h1>Jeevika</h1>
+        <h1>Localलाभ</h1>
         <button>Sign In</button>
       </div>
 

@@ -1,7 +1,7 @@
 .navbar{
     width: 100%; //adjust spacing 
     background-color: rgba(95,95,75,.3);
-    height: 50px;
+    height: 30px;
     color: white;
     font-size: 14px;
     position: fixed; // on top even on scroll
@@ -14,7 +14,7 @@
         background-color: rgba(95,95,75);
     }
     .container{
-        margin: 10px 0;
+        // margin: 10px 0;
         padding: 0px 50px;
         display: flex;
         align-items: center;

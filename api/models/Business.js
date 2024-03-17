@@ -35,8 +35,8 @@ const BusinessSchema=new mongoose.Schema({
         required:true,
     },
     rating:{
-        type:Number,
-        default:0,
+        type: Object,
+        default: {},
     },
     productImages: {
         type: Array,

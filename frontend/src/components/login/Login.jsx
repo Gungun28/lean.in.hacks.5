@@ -1,8 +1,9 @@
 // Login.js
+import './Login.css'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({type, user, setUser}) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -16,29 +17,44 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch(type=="business"?'/auth/login':'/auth/userlogin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
-      // Save token to local storage
-      localStorage.setItem('token', data.token);
-
-      // Redirect to home page
-      navigate('/');
+      if (response.ok) { // Check if response is successful
+        const data = await response.json();
+        console.log(data)
+        {type=="user" && setUser(data.info._id)}
+        
+        localStorage.setItem('token', data.accessToken);
+        navigate('/');
+      } else {
+        console.error('Login failed');
+        // Handle login failure, show error message, etc.
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div>
-      <input type="email" name="email" onChange={handleInputChange} />
-      <input type="password" name="password" onChange={handleInputChange} />
-      <button onClick={handleLogin}>Login</button>
+    <div className='outer-login'>
+
+      <div className='login-container'>
+        {/* <h1>Login</h1> */}
+        <h2 className='login-heading'>Login</h2>
+        <input type="email" name="email" onChange={handleInputChange} placeholder='Email'/>
+        <input type="password" name="password" onChange={handleInputChange} placeholder='Password'/>
+        {/* <button className='login-btn' onClick={handleLogin}>Login</button> */}
+        <button className='btn' onClick={handleLogin}>Login</button>
+      </div>
+
+      <div className='logo'>
+        <img src='https://www.shutterstock.com/image-vector/shop-local-badge-logo-icon-260nw-563514013.jpg' alt='...' />
+      </div>
+      {/* <h2>Login</h2> */}
     </div>
   );
 };

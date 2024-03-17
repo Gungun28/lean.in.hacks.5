@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className={isScrolled ? "navbar scrolled" : "navbar"}>
             <div className="container">
                 <div className="left">
-                    <span className="logo" >Jeevika</span>
+                    <span className="logo" >Localलाभ</span>
                     <Link to="/" className="link">
                         <span>Home</span>
                     </Link>
