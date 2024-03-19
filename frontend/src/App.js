@@ -32,7 +32,7 @@ function App() {
             <Route exact path="/login" element={<Login type="business" />} />
             <Route exact path="/userlogin" element={<Login type="user" user={user} setUser={setUser} />} />
           </Routes>
-          {/* {user && <Footer></Footer>} */}
+          {user && <Footer></Footer>}
         </Router>
       </div>
     </>
