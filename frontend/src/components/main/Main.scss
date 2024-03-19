@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     cursor: pointer;
-    .first{
+    .link-first{
         flex: 1;
         height: 90vh;
         background: url('https://img.freepik.com/free-photo/still-life-aesthetic-earrings_23-2149649160.jpg?size=626&ext=jpg&ga=GA1.1.1550926603.1695144721&semt=ais');
@@ -27,7 +27,7 @@
             }
         }
     }
-    .sec{
+    .link-sec{
         flex: 1;
         height: 90vh;
         background: url('https://img.freepik.com/free-photo/vintage-japanese-mobile-phone-case-pattern-set-remix-artwork-by-watanabe-seitei_53876-97240.jpg?w=826&t=st=1707048104~exp=1707048704~hmac=e130f47bec2ac40fc5b086e13bc04ab26429c6598db41e0a6227005c31f27c8f');
@@ -50,7 +50,7 @@
             }
         }
     }
-    .last{
+    .link-last{
         flex: 1;
         height: 90vh;
         background: url('https://img.freepik.com/free-photo/small-purse-studio-still-life_23-2151046466.jpg?w=360&t=st=1707047880~exp=1707048480~hmac=e4faa7cff4f1c07858445ddd0b066e17b6ca37ae62659da74c01bfd2fd6784a0');
