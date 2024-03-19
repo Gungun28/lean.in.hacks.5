@@ -5,7 +5,7 @@ function Landing() {
   
   return (
     <div>
-      <Link to="/userregister">
+      <Link to="/userlogin">
         <button> Sign up as customer</button>
       </Link>
 

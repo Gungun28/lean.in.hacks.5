@@ -14,7 +14,7 @@ const Login = ({type, user, setUser}) => {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  
   const handleLogin = async () => {
     try {
       const response = await fetch(type=="business"?'/auth/login':'/auth/userlogin', {
@@ -22,11 +22,11 @@ const Login = ({type, user, setUser}) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
+      
       if (response.ok) { // Check if response is successful
         const data = await response.json();
-        console.log(data)
-        {type=="user" && setUser(data.info._id)}
+        setUser(data.info._id)
+        // console.log(user)
         
         localStorage.setItem('token', data.accessToken);
         navigate('/');

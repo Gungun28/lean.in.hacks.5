@@ -11,7 +11,7 @@ import Landing from './pages/landing/Landing';
 import UserRegister from './pages/userRegister/UserRegister';
 
 function App() {
-  const [user, setUser] = useState("khushi");
+  const [user, setUser] = useState("");
 
   return (
     <>
