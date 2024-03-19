@@ -87,13 +87,15 @@ export default function Ratings({ business, user }) {
                     </div>
 
                     <div>
-                        <ReviewForm onReviewSubmit={handleReviewSubmit} />
+                        
+                        <ReviewForm business={business} user={user} />
                     </div>
                 </div>
 
                 {/* ************ customer reviews displayed ********* */}
                 <div className='part2'>
-                    <Reviews />
+                   
+                    <Reviews  business={business} />
                 </div>
             </div>
         </div>

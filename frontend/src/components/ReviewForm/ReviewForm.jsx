@@ -2,53 +2,54 @@
 import React, { useState } from 'react';
 import StarRating from 'react-rating-stars-component';
 import './ReviewForm.css';
+import axios from 'axios'; 
 
-export default function ReviewForm({ onReviewSubmit }) {
-  const [newReview, setNewReview] = useState({
-    customerName: '',
-    rating: 0,
-    comment: '',
-  });
+export default function ReviewForm({business , user }) {
+  const [newReview, setNewReview] = useState("hjvvjvh");
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewReview({ ...newReview, [name]: value });
+    // console.log(e.target.value);
+    setNewReview(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {    
     e.preventDefault();
-    if (newReview.customerName && newReview.rating && newReview.comment) {
-      onReviewSubmit({ ...newReview });
-      setNewReview({ customerName: '', rating: 0, comment: '' });
+    console.log('hell with u')
+    
+        const reqBody = { business: business, id: user, userReview: newReview };
+
+          try {
+              const response = await axios.post('/business/review', reqBody, {
+                  headers: { 'Content-Type': 'application/json' },
+              });
+
+
+              if (response.status === 200) {
+                  const data = response.data;
+                  // console.log(data);
+              } else {
+                  console.error('Review not added');
+              }
+          } catch (error) {
+              console.error(error);
+          
     }
   };
 
   return (
     <div className='form-container'> 
         <h3> Add Review about the store</h3>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Your Name: 
-            <input
-              type="text"
-              name="customerName"
-              value={newReview.customerName}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          
+        <form >          
           <br />
           <label>
             Your Review:
             <textarea
-              name="comment"
-              value={newReview.comment}
+              value={newReview}
               onChange={handleInputChange}
             />
           </label>
           <br />
-          <button type="submit" style={{backgroundColor:'#6c6c03',width:100,height:50}}>Post Review</button>
+          <button onClick={handleSubmit} style={{backgroundColor:'#6c6c03',width:100,height:50}}>Post Review</button>
         </form>
     </div>
   );

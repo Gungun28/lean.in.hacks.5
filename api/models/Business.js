@@ -45,6 +45,10 @@ const BusinessSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    review:{
+        type: Object,
+        default: {},
     }
 },{timestamps:true});
 module.exports=mongoose.model("Business",BusinessSchema)

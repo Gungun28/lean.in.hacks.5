@@ -1,17 +1,37 @@
 import React from 'react';
 import { useState } from 'react';
+import axios from 'axios'; 
 import StarRating from 'react-rating-stars-component';
 import './Reviews.css'
+import { useEffect } from 'react';
 
-export default function Reviews() {
-    const [reviews, setReviews] = useState([
-        { id: 1, customerName: 'Customer 1', rating: 5, comment: 'Great experience!' },
-        { id: 2, customerName: 'Customer 2', rating: 4, comment: 'Good service.' },
-        { id: 3, customerName: 'Customer 3', rating: 4, comment: 'Good service.' },
-        { id: 4, customerName: 'Customer 4', rating: 4, comment: 'Good service.' },
-        // Add more reviews as needed
-      ]);
-    
+export default function Reviews({business}) {
+    const [reviews, setReviews] = useState([  ]);
+      
+      useEffect( () => {
+        const get_review = async() => {
+          try {
+            const response = await axios.get('/business/display_review', {
+                params: {
+                    email: business.email,
+                    review : business.review
+                },
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.status === 200) {
+                const data = response.data;
+                setReviews(data);
+            } else {
+                console.error('Failed to fetch reviews');
+            }
+        }  catch (error) {
+            console.error(error);       
+          }
+        }
+
+        get_review()
+      },[reviews])
+
       return (
         <div>
           <div>
