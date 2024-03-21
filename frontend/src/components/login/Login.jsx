@@ -25,6 +25,7 @@ const Login = ({type, user, setUser}) => {
       
       if (response.ok) { // Check if response is successful
         const data = await response.json();
+        localStorage.setItem('user', data.info._id);
         setUser(data.info._id)
         // console.log(user)
         

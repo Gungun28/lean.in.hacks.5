@@ -1,15 +1,19 @@
 import React from 'react';
 import './Ratings.css';
 import StarRating from 'react-rating-stars-component';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Reviews from '../Reviews/Reviews';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import axios from 'axios'; // Import Axios
 
 export default function Ratings({ business, user }) {
     const [userrating, setRating] = useState(0);
-    const [reviews, setReviews] = useState([]); // Define 'reviews' state
+    const [reviews, setReviews] = useState([]); // Define 'reviews' state'
+    const [ratingarr,setRatingarr]=useState([])
 
+    useEffect(() => {
+        updaterating(business)
+    }, []);
     const handleRatingChange = async (newRating) => {
         setRating(newRating);
         const reqBody = { business: business, id: user, userRating: newRating };
@@ -20,8 +24,9 @@ export default function Ratings({ business, user }) {
             });
 
             if (response.status === 200) { // Check if response is successful
+                updaterating(response.data.business)
                 const data = response.data;
-                // console.log(data);
+                // console.log(data.business);
             } else {
                 console.error('Rating not updated');
             }
@@ -30,21 +35,21 @@ export default function Ratings({ business, user }) {
         }
     };
 
-    const handleReviewSubmit = (newReview) => {
-        setReviews([...reviews, { ...newReview, id: reviews.length + 1 }]);
-    };
 
-
-    const getRatingCount = (eachRating) => {
+    const getRatingCount = (business1,eachRating) => {
         if (!business || !business.rating) return 0;
         // Count the occurrences of the rating
-        return Object.values(business.rating).filter((value) => value === eachRating).length;
+        console.log(business1.rating)
+        return Object.values(business1.rating).filter((value) => value === eachRating).length;
 
     };
-
-    const ratingCounts = [];
-    for (let i = 1; i <= 5; i++) {
-        ratingCounts[i - 1] = getRatingCount(i);
+    const updaterating=(business1)=>{
+        console.log("hi")
+        const ratingCounts = [];
+        for (let i = 1; i <= 5; i++) {
+            ratingCounts[i - 1] = getRatingCount(business1,i);
+        }
+        setRatingarr(ratingCounts)
     }
 
     const getRatingPercentage = (eachRating) => {
@@ -75,7 +80,7 @@ export default function Ratings({ business, user }) {
                     <div className='rating-percentages'>
                         <h2 style={{ marginLeft: 100 }}>Customer Ratings</h2>
 
-                        {ratingCounts.map((rating, index) => (
+                        {ratingarr.map((rating, index) => (
                             <div key={index + 1} className='percentage-bar'>
                                 <span className='star-rating'>{`${index + 1} ⭐:`}</span>
                                 <div className='bar'>

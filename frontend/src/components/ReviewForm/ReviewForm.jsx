@@ -5,7 +5,7 @@ import './ReviewForm.css';
 import axios from 'axios'; 
 
 export default function ReviewForm({business , user }) {
-  const [newReview, setNewReview] = useState("hjvvjvh");
+  const [newReview, setNewReview] = useState("");
 
   const handleInputChange = (e) => {
     // console.log(e.target.value);
@@ -27,12 +27,13 @@ export default function ReviewForm({business , user }) {
               if (response.status === 200) {
                   const data = response.data;
                   // console.log(data);
-              } else {
+                } else {
                   console.error('Review not added');
-              }
-          } catch (error) {
-              console.error(error);
-          
+                }
+              } catch (error) {
+                console.error(error);
+                
+                setNewReview("")
     }
   };
 

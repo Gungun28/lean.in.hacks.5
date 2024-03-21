@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate
 import Categorypa from './pages/categorypage/Categorypa';
 import Home from './pages/home/Home';
@@ -11,7 +11,15 @@ import Landing from './pages/landing/Landing';
 import UserRegister from './pages/userRegister/UserRegister';
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(localStorage.getItem('user') || "");
+
+  // useEffect to update user state if local storage changes
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser !== user) {
+      setUser(storedUser || "");
+    }
+  }, [user]); 
 
   return (
     <>
@@ -26,7 +34,7 @@ function App() {
             <Route exact path="/jewellery" element={<Categorypa type="jewellery" />} />
             <Route exact path="/phonecase" element={<Categorypa type="phonecase" />} />
             <Route exact path="/store" element={<Store user={user} />} />
-            <Route exact path="/landing" element={<Landing />} />
+            <Route exact path="/landing" element={<Landing setUser={setUser} />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/userregister" element={<UserRegister />} />
             <Route exact path="/login" element={<Login type="business" />} />
